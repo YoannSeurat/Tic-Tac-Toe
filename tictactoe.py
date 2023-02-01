@@ -82,15 +82,18 @@ class TicTacToe:
             #goes through every possibility of winning in any frame, else returns False
             for i in range(self.size):
                 for j in range(self.size):
-                    if (j == 0 and self.board[i][j] == self.board[i][j+1] == self.board[i][j+2] != '-') \
-                    or (i == 0 and self.board[i][j] == self.board[i+1][j] == self.board[i+2][j] != '-') \
-                    or (i == j == 0 and self.board[i][j] == self.board[i+1][j+1] == self.board[i+2][j+2] != '-') \
-                    or (i == 2 and j == 0 and self.board[i][j] == self.board[i-1][j+1] == self.board[i-2][j+2] != '-'):
+                    #in order of appearance: horizontal, vertical, diagonal, anti-diagonal
+                    if (j == 0 and not (False in [self.board[i][j] == self.board[i][j+n] != '-' for n in range(1, self.size)])) \
+                    or (i == 0 and not (False in [self.board[i][j] == self.board[i+n][j] != '-' for n in range(1, self.size)])) \
+                    or (i == j == 0 and not (False in [self.board[i][j] == self.board[i+n][j+n] != '-' for n in range(1, self.size)])) \
+                    or (i == self.size-1 and j == 0 and not (False in [self.board[i][j] == self.board[i-n][j+n] != '-' for n in range(1, self.size)])):
                         return True
             return False
         return True
-    
-M = TicTacToe()
+
+s = int(input('Type in the size of the board: '))
+M = TicTacToe(s)
+print('\n\n\n')
 print(M)
 
 
