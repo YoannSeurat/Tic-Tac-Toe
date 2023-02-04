@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="morpion.css">
+    <script src="morpion.js"></script>
+    <title>Morpion</title>
+</head>
+<body>
+    <button id="changeSize" onclick="toggleChangeSize()" onmouseover="changeSize_hover()" onmouseout="changeSize_nothover()">Change board size</button>
+    <div id="sizeChanger">
+        <button id="btnMinus" onclick="changeBoardSize('-');">-</button>
+        <span id="boardSize">3x3</span>
+        <button id="btnPlus" onclick="changeBoardSize('+');">+</button>
+    </div>
+
+    <table id="board">
+        <tr id="row1">
+            <td id="cell1" onclick="play(this)"></td>
+            <td id="cell2" onclick="play(this)"></td>
+            <td id="cell3" onclick="play(this)"></td>
+        </tr>
+        <tr id="row2">
+            <td id="cell4" onclick="play(this)"></td>
+            <td id="cell5" onclick="play(this)"></td>
+            <td id="cell6" onclick="play(this)"></td>
+        </tr>
+        <tr id="row3">
+            <td id="cell7" onclick="play(this)"></td>
+            <td id="cell8" onclick="play(this)"></td>
+            <td id="cell9" onclick="play(this)"></td>
+        </tr>
+    </table>
+    
+    <button id="reset" onclick="reset()" onmouseenter="img_rotate()" onmouseleave="img_antirotate()">
+        Reset 
+        <img id="reset_img" src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/restart-icon-18-256.png">
+    </button>
+    <p id='alert'></p>
+</body>
+</html>
